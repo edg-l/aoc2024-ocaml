@@ -1,4 +1,4 @@
-let input = open_in "inputs/day1_p1.txt" in
+let input = open_in "inputs/day1.txt" in
 try
   let lines = In_channel.input_lines input in
   let parse_line x =

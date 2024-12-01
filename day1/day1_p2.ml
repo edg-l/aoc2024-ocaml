@@ -1,4 +1,4 @@
-let input = open_in "inputs/day1_p1.txt" in
+let input = open_in "inputs/day1.txt" in
 try
   let lines = In_channel.input_lines input in
   let parse_line x =
@@ -14,11 +14,10 @@ try
            match value with [x; y] -> Option.Some (x, y) | _ -> Option.None )
          values
   in
-  let lhs = List.fast_sort Int.compare lhs in
-  let rhs = List.fast_sort Int.compare rhs in
-  let result =
-    List.map (fun (x, y) -> Int.abs (y - x)) @@ List.combine lhs rhs
+  let countn x =
+    List.fold_left (fun acc a -> if a = x then acc + 1 else acc) 0
   in
+  let result = List.map (fun x -> x * countn x rhs) lhs in
   let result = List.fold_left ( + ) 0 result in
   let () = print_int result in
   let () = print_newline () in
