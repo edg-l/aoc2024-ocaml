@@ -1,0 +1,5 @@
+(executables
+ (public_names day2_p1)
+ (names day2_p1)
+ (modes byte)
+ (libraries aoc2024))
